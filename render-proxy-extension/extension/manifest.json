@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Render-proxy DevTools",
+  "version": "1.0.0",
+  "description": "Automatic execution tracing for frontend apps — visualize function calls, events, network requests, and errors as an interactive replay graph.",
+  "devtools_page": "devtools.html",
+  "permissions": [
+    "scripting",
+    "tabs",
+    "activeTab"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

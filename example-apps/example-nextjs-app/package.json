@@ -1,0 +1,19 @@
+{
+  "name": "devforum",
+  "private": true,
+  "version": "1.0.0",
+  "description": "DevForum — Next.js App Router forum demo with render-proxy-tracer",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.27.2",
+    "next": "^15.3.2",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "render-proxy-tracer": "file:../../render-proxy-package-gen/render-proxyV1"
+  }
+}

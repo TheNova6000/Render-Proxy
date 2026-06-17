@@ -1,0 +1,83 @@
+{
+  "name": "render-proxy-tracer",
+  "version": "1.0.0",
+  "description": "Automatic execution tracing and visual debugging for frontend applications — zero manual instrumentation",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./vite-plugin": {
+      "default": "./dist/plugin/vite-plugin.js"
+    },
+    "./babel-plugin": {
+      "default": "./dist/plugin/babel-trace-plugin.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "build": "npm run build:ts && npm run build:plugin && npm run build:types",
+    "build:ts": "esbuild src/index.ts --bundle --platform=browser --format=esm --outfile=dist/index.esm.js && esbuild src/index.ts --bundle --platform=node --format=cjs --outfile=dist/index.cjs.js --target=node16",
+    "build:plugin": "babel src/plugin --extensions \".ts,.js\" --out-dir dist/plugin --copy-files",
+    "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "tracing",
+    "render-proxy",
+    "execution-trace",
+    "instrumentation",
+    "debugging",
+    "devtools",
+    "vite",
+    "babel",
+    "react",
+    "vue",
+    "frontend",
+    "performance",
+    "profiling"
+  ],
+  "author": {
+    "name": "render-proxy"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheNova6000/Render-Proxy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheNova6000/Render-Proxy/issues"
+  },
+  "homepage": "https://github.com/TheNova6000/Render-Proxy#readme",
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17 || ^18 || ^19"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5",
+    "@babel/plugin-transform-typescript": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
+    "@babel/types": "^7.22.5",
+    "@types/babel__core": "^7.20.0",
+    "@types/node": "^18.16.19",
+    "esbuild": "^0.18.20",
+    "typescript": "^5.1.6"
+  }
+}

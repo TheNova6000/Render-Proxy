@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taskboard · Render-proxy demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="app-header">
+        <div class="header-left">
+          <span class="logo-icon">⬡</span>
+          <div>
+            <h1>Taskboard</h1>
+            <p class="header-sub">Vanilla JS · Render-proxy demo</p>
+          </div>
+        </div>
+        <div class="header-right">
+          <div id="stat-bar" class="stat-bar">
+            <span id="stat-total">0 tasks</span>
+            <span class="stat-sep">·</span>
+            <span id="stat-done" class="highlight">0 done</span>
+          </div>
+          <span id="trace-badge" class="trace-badge" title="Trace events captured by Render-proxy">⬡ 0 events</span>
+          <button id="btn-clear-done" class="btn-ghost" title="Archive completed tasks">Clear done</button>
+        </div>
+      </header>
+
+      <div class="toolbar">
+        <div class="add-form">
+          <input id="task-input" type="text" placeholder="Describe a new task…" autocomplete="off" spellcheck="false" maxlength="120" />
+          <select id="priority-select">
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+            <option value="low">Low</option>
+          </select>
+          <button id="btn-add" class="btn-primary">＋ Add</button>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label">Priority:</span>
+          <button class="filter-chip active" data-filter="all">All</button>
+          <button class="filter-chip" data-filter="high"><span class="dot dot-high"></span>High</button>
+          <button class="filter-chip" data-filter="medium"><span class="dot dot-medium"></span>Medium</button>
+          <button class="filter-chip" data-filter="low"><span class="dot dot-low"></span>Low</button>
+        </div>
+      </div>
+
+      <div class="board">
+        <div class="column" id="col-todo">
+          <div class="col-header">
+            <span class="col-icon col-todo-icon">○</span>
+            <span class="col-title">To Do</span>
+            <span class="col-count" id="count-todo">0</span>
+          </div>
+          <div class="task-list" id="list-todo" data-status="todo"></div>
+          <div class="col-empty" id="empty-todo">No tasks here</div>
+        </div>
+
+        <div class="column" id="col-doing">
+          <div class="col-header">
+            <span class="col-icon col-doing-icon">◑</span>
+            <span class="col-title">In Progress</span>
+            <span class="col-count" id="count-doing">0</span>
+          </div>
+          <div class="task-list" id="list-doing" data-status="doing"></div>
+          <div class="col-empty" id="empty-doing">Move a task here to start</div>
+        </div>
+
+        <div class="column" id="col-done">
+          <div class="col-header">
+            <span class="col-icon col-done-icon">●</span>
+            <span class="col-title">Done</span>
+            <span class="col-count" id="count-done">0</span>
+          </div>
+          <div class="task-list" id="list-done" data-status="done"></div>
+          <div class="col-empty" id="empty-done">Completed tasks appear here</div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

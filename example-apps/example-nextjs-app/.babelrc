@@ -1,0 +1,4 @@
+{
+  "presets": ["next/babel"],
+  "plugins": ["render-proxy-tracer/dist/plugin/babel-trace-plugin"]
+}

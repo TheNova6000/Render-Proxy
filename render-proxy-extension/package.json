@@ -1,0 +1,23 @@
+{
+  "name": "render-proxy-devtools-extension",
+  "version": "1.0.0",
+  "description": "Chrome DevTools extension for render-proxy-tracer — interactive execution graph, screenshot replay, and event log.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "html2canvas": "^1.4.1",
+    "lucide-react": "^0.468.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "reactflow": "^11.11.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.4",
+    "vite": "^7.1.12"
+  }
+}
